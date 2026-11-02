@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#003A5D">
+<title>Updated TOEFL 소개 — 노베토플 4.5+</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+Mono:wght@400;500;700&display=swap">
+<style>
+:root{
+  --spot:#003A5D; --fill:#2E6C93; --tint:#E9F1F6; --deep:#0E2C3F;
+  --bg:#FBFBFC; --surf:#FFFFFF; --fg:#1A1D21; --mut:#636B75;
+  --faint:#99A1AB; --line:#E5E8EC;
+  --f-ui:"Noto Sans KR",system-ui,-apple-system,"Malgun Gothic",sans-serif;
+  --f-mono:"Noto Sans Mono",ui-monospace,"SF Mono",Consolas,monospace;
+  --gut:max(16px, env(safe-area-inset-left, 0px));
+  --gut-r:max(16px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#121417; --surf:#1B1E22; --fg:#F0F2F4; --mut:#A3ABB5;
+  --faint:#737B85; --line:#2A2E34; color-scheme:dark;
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-ui);
+  font-size:15px;line-height:1.7;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;
+  height:env(safe-area-inset-top,0px);z-index:30;background:var(--spot)}
+
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:var(--spot);color:#fff;transition:background .25s}
+.top-in{padding-left:var(--gut);padding-right:var(--gut-r);
+  padding-block:11px;display:flex;flex-direction:column;gap:10px;
+  max-width:720px;margin:0 auto}
+.brand{display:flex;align-items:baseline;gap:9px}
+.brand b{font-size:15.5px;font-weight:700}
+.brand span{font-size:11.5px;opacity:.85;font-family:var(--f-mono);
+  letter-spacing:.06em;text-transform:uppercase}
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;
+  padding-bottom:2px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:0 0 auto;border:0;border-radius:999px;cursor:pointer;
+  font-family:var(--f-ui);font-size:12.5px;font-weight:500;padding:7px 14px;
+  background:rgba(255,255,255,.2);color:#fff;white-space:nowrap}
+.tabs button[aria-selected="true"]{background:#fff;color:var(--spot);
+  font-weight:700}
+
+main{padding-left:var(--gut);padding-right:var(--gut-r);
+  padding-block:16px 48px;display:flex;flex-direction:column;gap:14px;
+  max-width:720px;margin:0 auto}
+
+.card{background:var(--surf);border:1px solid var(--line);border-radius:12px;
+  padding:16px 16px 18px;display:flex;flex-direction:column;gap:11px}
+.card h2{margin:0 0 2px;font-size:16px;font-weight:700;color:var(--spot);
+  display:flex;align-items:center;gap:8px;line-height:1.45}
+.card h2::before{content:"";flex:0 0 auto;width:3px;height:16px;
+  border-radius:2px;background:var(--fill)}
+.card h3{margin:6px 0 0;font-size:14px;font-weight:700;line-height:1.5}
+.card h3.step{display:flex;align-items:baseline;gap:8px}
+.card h3.step i{flex:0 0 auto;font-style:normal;font-family:var(--f-mono);
+  font-size:11.5px;font-weight:700;color:#fff;background:var(--fill);
+  border-radius:999px;min-width:19px;height:19px;display:inline-grid;
+  place-items:center;transform:translateY(2px)}
+.card p{margin:0;font-size:13.5px;line-height:1.78;color:var(--fg)}
+.card p.lead{color:var(--fg)}
+.card p.cap{display:inline-block;align-self:flex-start;margin:-5px 0 0;
+  font-size:11.5px;font-weight:700;color:var(--spot);background:var(--tint);
+  border-radius:999px;padding:2px 9px}
+.card p.note{font-size:12.5px;color:var(--mut);border-left:2px solid
+  var(--fill);padding-left:9px;line-height:1.7}
+
+.screen{display:flex;flex-wrap:wrap;align-items:center;gap:6px;
+  background:var(--tint);border-radius:9px;padding:9px 11px}
+.screen b{font-size:11px;font-weight:700;color:var(--spot);
+  letter-spacing:.02em;margin-right:2px}
+.screen span{font-size:12px;color:var(--fg);background:var(--surf);
+  border-radius:6px;padding:2px 8px;white-space:nowrap}
+
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw.scrolls{position:relative;padding-bottom:17px}
+.tw.scrolls::after{content:"표를 옆으로 밀어 보세요";position:absolute;
+  left:0;bottom:0;font-size:10.5px;color:var(--faint)}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+table.wide{min-width:548px}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;
+  vertical-align:top;line-height:1.6}
+th{background:var(--tint);color:var(--spot);font-weight:700;
+  white-space:nowrap}
+td:first-child{font-weight:500;white-space:nowrap}
+
+.foot{color:var(--faint);font-size:11.5px;text-align:center;
+  padding-top:18px;border-top:1px solid var(--line)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+<div class="brand"><b>Updated TOEFL 안내</b><span>2026 개정 시험</span></div>
+<nav class="tabs" role="tablist">
+<button type="button" role="tab" data-k="about" aria-selected="false">개요</button>
+<button type="button" role="tab" data-k="reading" aria-selected="false">Reading</button>
+<button type="button" role="tab" data-k="listening" aria-selected="false">Listening</button>
+<button type="button" role="tab" data-k="writing" aria-selected="false">Writing</button>
+<button type="button" role="tab" data-k="speaking" aria-selected="false">Speaking</button>
+</nav></div></header>
+<main>
+<section class="pane" data-k="about" hidden>
+<article class="card">
+<h2>TOEFL iBT 기본 안내</h2>
+<h3>TOEFL iBT의 목적과 진행 방식</h3>
+<p class="lead">TOEFL(Test of English as a Foreign Language) iBT(Internet-based Test)는 미국의 비영리기관 ETS(Educational Testing Service)가 시행하는 국제 영어 능력 시험이다. 영어를 모국어로 사용하지 않는 응시자의 읽기·듣기·쓰기·말하기 능력을 측정한다. Updated TOEFL은 Reading, Listening, Writing, Speaking 순으로 진행된다. Reading과 Listening에는 단계별 적응형 평가(multistage adaptive testing)가 적용되므로, Module 1의 채점 결과에 따라 Module 2에서 제시되는 문제의 구성과 난이도가 달라진다.</p>
+<h3>영역별 과제와 시험 시간</h3>
+<div class="tw"><table class="wide">
+<tr><th>영역</th><th>과제 구성</th><th>문항 수</th><th>시간</th><th>점수</th></tr>
+<tr><td>Reading</td><td>1 Complete the Words<br>2 Read in Daily Life (지문당 2~3문항)<br>3 Read an Academic Passage (지문당 5문항)</td><td>35~50문항<br>Module 1 20~35<br>Module 2 15</td><td>18~30분</td><td>1~6점</td></tr>
+<tr><td>Listening</td><td>1 Listen and Choose a Response<br>2 Listen to a Conversation (지문당 2문항)<br>3 Listen to an Announcement (지문당 2문항)<br>4 Listen to an Academic Talk (지문당 4문항)</td><td>35~47문항<br>Module 1 20~32<br>Module 2 15</td><td>18~29분</td><td>1~6점</td></tr>
+<tr><td>Writing</td><td>1 Build a Sentence<br>2 Write an Email<br>3 Write for an Academic Discussion</td><td>12문항</td><td>약 23분</td><td>1~6점</td></tr>
+<tr><td>Speaking</td><td>1 Listen and Repeat (세트당 7문항)<br>2 Take an Interview (세트당 4문항)</td><td>11문항</td><td>약 8분</td><td>1~6점</td></tr>
+</table></div>
+<p class="note">전체 시험 시간은 약 1시간 30분이며, 총점의 범위는 1~6점이다.</p>
+<p class="note">Reading과 Listening의 Module 1에는 모든 TASK가 포함된다. Module 2는 난이도에 따라 일부 TASK만 출제된다.</p>
+</article>
+<article class="card">
+<h2>점수와 응시 절차</h2>
+<h3>밴드 점수와 총점 산출</h3>
+<p class="lead">Updated TOEFL은 CEFR(Common European Framework of Reference for Languages)의 6단계와 연결되는 1~6점 밴드 점수 체계를 사용한다. 각 영역 점수는 0.5점 간격으로 표시한다. 총점은 네 영역 점수의 평균을 구한 뒤 가장 가까운 0.5점으로 반올림하여 산출한다. 예를 들어 네 영역 평균이 5.25점이면 총점은 5.5점으로 표시된다.</p>
+<p class="note">2026년 1월 21일 개정 시험 시행일을 기준으로 2년 동안은 기존 0~120점 점수도 함께 표기된다.</p>
+<h3>TOEFL 점수와 CEFR의 대응 관계</h3>
+<div class="tw"><table class="wide">
+<tr><th>CEFR</th><th>A1</th><th>A2</th><th>B1</th><th>B2</th><th>C1</th><th>C2</th></tr>
+<tr><td>TOEFL</td><td>1.0 · 1.5</td><td>2.0 · 2.5</td><td>3.0 · 3.5</td><td>4.0 · 4.5</td><td>5.0 · 5.5</td><td>6.0 만점</td></tr>
+</table></div>
+<h3>시험 신청과 성적 확인</h3>
+<div class="tw"><table>
+<tr><th>항목</th><th>안내</th></tr>
+<tr><td>시험 일정</td><td>ETS Test Center에서는 일주일에 약 2~3일, 홈에디션은 일주일에 약 4~5일 시험이 시행된다.</td></tr>
+<tr><td>응시 장소</td><td>ETS Test Center를 방문하거나 집에서 홈에디션 방식으로 응시할 수 있다.</td></tr>
+<tr><td>신청 경로</td><td>ETS 토플 웹사이트 또는 전화를 통해 시험을 신청한다.</td></tr>
+<tr><td>준비 사항</td><td>시험 당일에는 공인 신분증 원본을 지참한다. 홈에디션 응시자는 ETS 토플 웹사이트에서 필요한 프로그램과 준비 사항을 미리 확인하고 설치 및 준비를 마친다.</td></tr>
+<tr><td>성적 확인</td><td>응시 직후 Reading·Listening의 비공식 점수를 확인할 수 있다. 공식 성적은 응시일로부터 72시간 후 온라인으로 조회한다. MyBest Scores는 최근 2년간의 성적 가운데 영역별 최고 점수를 합산하는 방식이며, 유효 성적으로 인정된다.</td></tr>
+<tr><td>성적 전송</td><td>시험 신청 과정에서 성적을 자동으로 리포팅받을 기관을 선택할 수 있다.</td></tr>
+</table></div>
+</article>
+</section>
+<section class="pane" data-k="reading" hidden>
+<article class="card">
+<h2>Reading 평가 내용과 모듈 구성</h2>
+<p class="lead">Reading은 영어권의 대학 및 일상에서 접할 수 있는 여러 종류의 글을 이해하는 능력을 평가한다. 문제 풀이에 별도의 전문 배경지식이 요구되지는 않으며, 답을 판단하는 데 필요한 정보는 지문 안에서 찾을 수 있다.</p>
+<h3>두 모듈로 진행되는 읽기 평가</h3>
+<p class="lead">Reading은 Module 1의 결과를 바탕으로 Module 2의 구성과 난이도를 정하는 단계별 적응형 평가다. 첫 모듈에는 세 TASK가 모두 나오고, 두 번째 모듈에는 그중 일부가 포함된다. Module 1에는 더미 문항이 출제될 수 있다.</p>
+<h3>Module 1</h3>
+<div class="tw"><table>
+<tr><th>TASK</th><th>문항 수와 지문 수</th></tr>
+<tr><td>1 Complete the Words</td><td>10~20문항 (1~2지문)</td></tr>
+<tr><td>2 Read in Daily Life</td><td>5~10문항 (2~4지문)</td></tr>
+<tr><td>3 Read an Academic Passage</td><td>5~10문항 (1~2지문)</td></tr>
+<tr><td>합계</td><td>20~35문항</td></tr>
+</table></div>
+<h3>Module 1 결과 → Module 2 Lower 또는 Upper로 진행</h3>
+<div class="tw"><table>
+<tr><th>TASK</th><th>Module 2 Lower</th><th>Module 2 Upper</th></tr>
+<tr><td>1 Complete the Words</td><td>10문항 (1지문)</td><td>10문항 (1지문)</td></tr>
+<tr><td>2 Read in Daily Life</td><td>5문항 (3지문)</td><td>0문항</td></tr>
+<tr><td>3 Read an Academic Passage</td><td>0문항</td><td>5문항 (1지문)</td></tr>
+<tr><td>합계</td><td>15문항</td><td>15문항</td></tr>
+</table></div>
+<p class="note">Lower Module로 진행하는 경우에는 5점 이상의 고득점을 얻기 어렵다는 점에 유의한다.</p>
+</article>
+<article class="card">
+<h2>Reading 과제별 출제 방식</h2>
+<h3>TASK 1 Complete the Words</h3>
+<p class="cap">지문당 10문항</p>
+<p class="lead">약 70~100단어의 학술 지문에서 단어의 뒷부분을 완성하는 유형이다. 첫 문장은 빈칸 없이 제시되고, 이후에는 앞부분 철자만 주어진 단어 10개의 남은 철자를 입력한다. 마우스로 원하는 빈칸을 선택해 작성할 수 있으며, 철자를 입력한 뒤에는 다음 빈칸으로 이동한다. 같은 문제 안에서는 빈칸을 오가며 답을 확인할 수 있다.</p>
+<h3>TASK 2 Read in Daily Life</h3>
+<p class="cap">지문당 2~3문항</p>
+<p class="lead">이메일·문자 메시지·광고처럼 일상에서 사용되는 글을 읽고 내용에 맞는 답을 고른다. 지문은 약 15~150단어로 제시되며, 길이에 따라 지문 하나에 2문항 또는 3문항이 연결된다. 글의 목적과 필요한 정보를 파악하고 지문에 근거해 선택지를 판단한다.</p>
+<h3>TASK 3 Read an Academic Passage</h3>
+<p class="cap">지문당 5문항</p>
+<p class="lead">학술 내용을 담은 글을 읽고 관련 문제에 답한다. 인문학·예술·사회과학·물리과학·자연과학 등 여러 분야가 출제되며, 영어권 고등학교나 대학교의 교과서에서 다루는 수준의 내용을 포함한다. 지문 길이는 약 175~200단어이고, 한 지문에서 5문항이 출제된다.</p>
+</article>
+<article class="card">
+<h2>Reading 화면의 흐름과 조작 방법</h2>
+<h3 class="step"><i>1</i>영역 시작 안내</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>Reading Directions</span><span>TASK 1 · 2 · 3</span></div>
+<p>출제 문항 범위와 세 가지 과제의 개요를 확인하는 단계다. Reading에서 어떤 종류의 문제를 풀게 되는지 먼저 안내한다.</p>
+<h3 class="step"><i>2</i>모듈 진행 안내</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>Module</span><span>남은 시간</span><span>Next · Back</span></div>
+<p>모듈의 진행 방식과 제한 시간이 안내된다. 같은 모듈 안에서는 Next와 Back을 이용해 문제 사이를 이동할 수 있다는 점을 확인한다.</p>
+<h3 class="step"><i>3</i>철자 완성 문제</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>Complete the Words</span><span>지문 · 빈칸 10개</span></div>
+<p>일부 철자만 주어진 단어 10개가 지문에 포함된다. 빈칸을 선택해 나머지 철자를 입력하면 다음 빈칸으로 이동하며, Next를 눌러 다음 문제로 넘어갈 수도 있다.</p>
+<h3 class="step"><i>4</i>실용문 및 학술 지문 문제</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>지문 영역</span><span>질문 · 선택지</span><span>Next · Back</span></div>
+<p>왼쪽에는 글이, 오른쪽에는 한 문항씩 질문이 제시된다. 보기 앞의 원을 눌러 답을 선택한 뒤 Next로 진행한다. 같은 모듈 안에서는 Back으로 앞 문항을 다시 확인할 수 있다.</p>
+<h3 class="step"><i>5</i>모듈 마무리</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>Module Complete</span><span>Back · Next</span></div>
+<p>모듈을 마치면 답안을 검토하거나 다음 단계로 진행할 수 있다. Back은 현재 모듈의 답을 점검할 때, Next는 다음 모듈 또는 다음 영역으로 넘어갈 때 사용한다.</p>
+</article>
+</section>
+<section class="pane" data-k="listening" hidden>
+<article class="card">
+<h2>Listening 평가 내용과 모듈 구성</h2>
+<p class="lead">Listening은 영어권의 대학이나 일상에서 이루어지는 대화·공지·강의를 듣고 내용을 이해하는 능력을 평가한다. 실제 상황에 가까운 자연스러운 말투와 구어 표현이 사용되며, 미국·영국·호주의 발음이 골고루 제시된다. 메모가 허용되므로 필요한 경우 핵심어를 적으며 들을 수 있다.</p>
+<h3>첫 모듈 결과에 따라 달라지는 두 번째 모듈</h3>
+<p class="lead">Listening도 두 개의 모듈로 진행된다. Module 1의 채점 결과가 Module 2의 난이도와 과제 구성을 결정한다. 첫 모듈은 네 TASK를 모두 포함하고, 두 번째 모듈은 경로에 따라 출제 TASK가 달라진다. Module 1에는 더미 문항이 나올 수 있다.</p>
+<h3>Module 1</h3>
+<div class="tw"><table>
+<tr><th>TASK</th><th>문항 수와 지문 수</th></tr>
+<tr><td>1 Listen and Choose a Response</td><td>8~12문항</td></tr>
+<tr><td>2 Listen to a Conversation</td><td>4~6문항 (2~3지문)</td></tr>
+<tr><td>3 Listen to an Announcement</td><td>4~6문항 (2~3지문)</td></tr>
+<tr><td>4 Listen to an Academic Talk</td><td>4~8문항 (1~2지문)</td></tr>
+<tr><td>합계</td><td>20~32문항</td></tr>
+</table></div>
+<h3>Module 1 결과 → Module 2 Lower 또는 Upper로 진행</h3>
+<div class="tw"><table>
+<tr><th>TASK</th><th>Module 2 Lower</th><th>Module 2 Upper</th></tr>
+<tr><td>1 Listen and Choose a Response</td><td>7문항</td><td>3문항</td></tr>
+<tr><td>2 Listen to a Conversation</td><td>4문항 (2지문)</td><td>4문항 (2지문)</td></tr>
+<tr><td>3 Listen to an Announcement</td><td>4문항 (2지문)</td><td>0문항</td></tr>
+<tr><td>4 Listen to an Academic Talk</td><td>0문항</td><td>8문항 (2지문)</td></tr>
+<tr><td>합계</td><td>15문항</td><td>15문항</td></tr>
+</table></div>
+<p class="note">Lower Module로 진행하면 5점 이상의 고득점을 받기 어렵다.</p>
+</article>
+<article class="card">
+<h2>Listening 과제별 출제 방식</h2>
+<h3 class="step">TASK 1 Listen and Choose a Response</h3>
+<p class="cap">문항당 20초</p>
+<p>질문이나 평서문 한 문장을 듣고, 그 말에 자연스럽게 이어질 응답을 네 개의 보기에서 고른다. 제시되는 문장은 평균 7~8단어로 짧지만 한 번만 들을 수 있다. 처음부터 끝까지 집중해 발화의 뜻을 파악해야 하며, 문제 하나에 주어지는 응답 제한 시간은 20초다.</p>
+<h3 class="step">TASK 2 Listen to a Conversation</h3>
+<p class="cap">지문당 2문항 · 문항당 20초</p>
+<p>두 사람이 나누는 대화를 듣고 내용에 관한 문제에 답한다. 대화 재생 중에는 문제를 볼 수 없으며, 재생이 끝나면 질문과 네 개의 보기가 제시된다. 음원은 약 23초이며, 주로 대학이나 일상에서 일어날 수 있는 상황을 다룬다. 한 지문에 2문항이 연결되고 각 문항의 제한 시간은 20초다.</p>
+<h3 class="step">TASK 3 Listen to an Announcement</h3>
+<p class="cap">지문당 2문항 · 문항당 20초</p>
+<p>한 명의 화자가 전하는 공지를 듣고 내용을 묻는 문제를 푼다. 음원이 끝난 뒤 질문과 네 개의 보기를 확인한다. 공지는 약 21초이며, 대학의 강의·행사·시설 등에 대한 안내가 주로 제시된다. 지문당 2문항이 출제되고, 문항별 응답 시간은 20초다.</p>
+<h3 class="step">TASK 4 Listen to an Academic Talk</h3>
+<p class="cap">지문당 4문항 · 문항당 30초</p>
+<p>한 명의 화자가 설명하는 학술 강의를 듣고 관련 질문에 답한다. 강의가 끝나면 질문과 네 개의 보기가 나타난다. 음원의 길이는 약 1분 20초이며, 지문 하나에 4문항이 출제된다. 이 과제에서는 각 문항에 30초의 제한 시간이 주어진다.</p>
+</article>
+<article class="card">
+<h2>Listening 화면의 흐름과 조작 방법</h2>
+<h3 class="step"><i>1</i>음량 점검</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>Volume Check</span><span>Volume</span></div>
+<p>시작 전 소리가 적절하게 들리는지 확인한다. Volume을 선택하면 음량 조절 창을 열 수 있으며, 시험이 진행되는 동안에도 소리 크기를 조정할 수 있다.</p>
+<h3 class="step"><i>2</i>영역 시작 안내</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>Listening Directions</span><span>35~45문항 · 3가지 TASK</span></div>
+<p>전체 시험의 문항 수와 과제 구성을 소개한다. 35~45문항과 크게 3가지 TASK로 구성된다는 안내를 확인하며, 한 번 지나간 문제에는 다시 접근할 수 없다는 점도 살펴본다.</p>
+<h3 class="step"><i>3</i>모듈 진행 안내</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>Module</span><span>문항별 제한 시간</span><span>Next</span></div>
+<p>각 문제에 제한 시간이 적용되는 방식과 Next로 답을 제출하고 이동하는 방법을 확인한다. 이어지는 TASK 1의 진행 방법도 이 단계에서 안내된다.</p>
+<h3 class="step"><i>4</i>짧은 응답 선택</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>TASK 1</span><span>발화 음원 · 인물 사진 · 선택지 4개</span></div>
+<p>발화를 들을 때 인물 사진과 네 개의 보기가 표시된다. 음원이 끝난 뒤 보기 앞의 원을 눌러 답을 고른다. Next를 선택하면 답이 제출되고 다음 문항으로 진행된다.</p>
+<h3 class="step"><i>5</i>대화 공지 강의 안내</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>TASK 2~4 Directions</span><span>1회 청취 · 문항별 시간</span></div>
+<p>TASK 1을 마친 후 나머지 과제의 방식을 확인한다. 대화·공지·강의는 한 번만 들을 수 있고, 음원 이후 문제를 풀 때 제한 시간이 제시된다는 내용을 안내한다.</p>
+<h3 class="step"><i>6</i>음원 청취</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>TASK 2 대화</span><span>TASK 3~4 공지 · 강의</span></div>
+<p>대화 음원에는 두 화자의 사진이, 공지와 강의에는 한 화자의 사진이 제시된다. 음성을 듣는 동안에는 내용 이해에 집중하고 필요한 정보를 메모한다.</p>
+<h3 class="step"><i>7</i>문제 응답</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>질문</span><span>선택지 4개</span><span>Next</span></div>
+<p>음원이 끝나면 해당 내용에 관한 질문과 네 개의 보기가 나타난다. 답을 선택하고 Next를 누르면 선택이 확정되어 다음 문제로 넘어간다.</p>
+<h3 class="step"><i>8</i>모듈 마무리</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>End of Module</span><span>Next</span></div>
+<p>모듈 종료 안내에서 Next를 누르면 다음 모듈이나 다음 영역으로 이동한다. Listening에서는 이전 문항으로 되돌아가 답을 수정할 수 없다.</p>
+</article>
+</section>
+<section class="pane" data-k="writing" hidden>
+<article class="card">
+<h2>Writing 평가 내용과 과제 구성</h2>
+<p class="lead">Writing은 영어권의 학업 및 일상에서 요구되는 글쓰기 능력을 측정한다. 시험 준비 과정에서 문장을 구성하고 목적에 맞게 내용을 전달하는 방법을 익히면, 실제 해외 대학에서의 학습과 생활에 필요한 쓰기 능력도 함께 준비할 수 있다.</p>
+<h3>세 과제의 문항 수와 시간</h3>
+<div class="tw"><table>
+<tr><th>TASK</th><th>문항 수</th><th>제한 시간</th></tr>
+<tr><td>1 Build a Sentence</td><td>10문항</td><td>약 6분 50초</td></tr>
+<tr><td>2 Write an Email</td><td>1문항</td><td>7분</td></tr>
+<tr><td>3 Write for an Academic Discussion</td><td>1문항</td><td>10분</td></tr>
+<tr><td>합계</td><td>12문항</td><td>약 23분</td></tr>
+</table></div>
+<h3>과제별 응답 방법</h3>
+<h3 class="step">TASK 1 Build a Sentence</h3>
+<p>두 사람의 짧은 대화에서 첫 번째 발화는 완성된 질문이나 평서문으로 주어진다. 두 번째 발화에는 빈칸과 순서가 섞인 단어가 제시되므로, 대화의 흐름과 문법에 맞게 단어를 배열해 문장을 완성한다. 문항별 풀이 시간을 40초 이내로 관리하는 것이 좋으며, TASK 1 안에서는 다른 문제로 이동할 수 있다.</p>
+<h3 class="step">TASK 2 Write an Email</h3>
+<p>대학이나 일상에서 생길 수 있는 상황과 이메일에 담아야 할 항목을 읽고 글을 작성한다. 과제 제출 연장을 교수에게 요청하거나 친구에게 약속 변경을 알리는 등 주어진 목적에 맞는 내용과 형식을 사용한다. 답안 작성 시간은 7분이며, 이 시간 안에 가능한 한 충분한 내용을 작성한다.</p>
+<h3 class="step">TASK 3 Write for an Academic Discussion</h3>
+<p>대학 수업의 온라인 토론을 가정한 과제다. 교수의 질문과 두 학생의 의견을 읽은 뒤, 자신의 입장을 제시하고 근거를 들어 설명한다. 기존 의견을 고려하면서 토론에 기여할 내용을 작성해야 하며, 답안은 100단어 이상으로 쓴다. 주어진 작성 시간은 10분이다.</p>
+</article>
+<article class="card">
+<h2>Writing 채점 방식과 평가 기준</h2>
+<p class="note">TASK 1은 빈칸을 맞게 완성하면 1점, 틀리면 0점으로 채점한다. TASK 2와 TASK 3은 아래 기준에 따라 각각 0~5점으로 평가한다. 세 과제의 원점수를 종합해 Writing 영역의 1~6점 밴드 점수로 환산하며, 구체적인 환산 방식은 ETS가 공개하지 않는다.</p>
+<div class="tw"><table>
+<tr><th>점수</th><th>TASK 2 Write an Email</th><th>TASK 3 Write for an Academic Discussion</th></tr>
+<tr><td>5점</td><td>목적이 분명하고 전달 효과가 높은 답안이다.<br>• 의사소통 목적을 뒷받침하는 구체적인 정보가 충분하다.<br>• 문장 형식을 다양하게 사용하며 어휘와 관용 표현을 정확하고 유연하게 활용한다.<br>• 상황과 사회적 관습에 맞는 표현을 능숙하게 선택한다.<br>• 가벼운 오타나 철자 실수를 제외하면 어휘·문법 오류가 거의 없다.</td><td>주제에 밀접하게 관련되며 토론에 분명한 기여를 하는 글이다.<br>• 설명과 예시, 세부 내용이 논리적으로 연결되고 명료하다.<br>• 다양한 문장과 정확한 어휘·관용 표현을 자유롭게 사용한다.<br>• 사소한 입력·철자 실수 외에는 어휘·문법 오류가 거의 없다.</td></tr>
+<tr><td>4점</td><td>전반적으로 목적을 잘 달성하며 읽기 쉽다.<br>• 전달 목적에 필요한 구체적인 정보가 충분하다.<br>• 문장 구성이 다양하고 어휘 선택이 정확하다.<br>• 사회적 관습과 상황에 맞는 표현을 사용한다.<br>• 어휘·문법상의 오류가 많지 않다.</td><td>주제에 맞고 토론을 발전시키는 내용이 대체로 명료하다.<br>• 설명·예시·세부 정보가 관련성을 갖추고 적절하게 제시된다.<br>• 여러 문장 구조와 적절한 어휘를 사용한다.<br>• 어휘·문법 오류는 적은 편이다.</td></tr>
+<tr><td>3점</td><td>과제를 전반적으로 수행하지만 표현 능력의 한계로 일부 내용이 불분명하거나 전달력이 떨어진다.<br>• 목적을 뒷받침하는 내용이 부분적으로 제시된다.<br>• 문장과 어휘의 다양성은 보통 수준이다.<br>• 눈에 띄는 어휘·문법 오류가 있고, 관습에 어울리지 않는 표현도 나타난다.</td><td>주제와 대체로 관련되며 이해 가능한 수준으로 토론에 참여한다.<br>• 일부 설명이나 예시가 빠져 있거나 명확하지 않고 연결이 약하다.<br>• 문장과 단어를 어느 정도 다양하게 활용한다.<br>• 드러나는 어휘·문법 오류가 몇 군데 있다.</td></tr>
+<tr><td>2점</td><td>과제를 완성하려는 시도는 있으나 언어 사용의 제약 때문에 뜻을 파악하기 어렵다.<br>• 정보가 부족하거나 과제와 관련이 약하다.<br>• 어휘와 문장 구조가 제한적이고 문장을 나열하는 데 머문다.<br>• 어휘·문법 오류가 자주 발생한다.</td><td>토론에 참여하려 하지만 표현 능력이 부족해 생각을 이해하기 어렵다.<br>• 설명이 충분하지 않거나 주제와의 관련성이 일부에 그친다.<br>• 사용할 수 있는 문장 구조와 어휘가 한정돼 있다.<br>• 어휘·문법상의 실수가 반복된다.</td></tr>
+<tr><td>1점</td><td>과제의 목적을 효과적으로 이루지 못하고 적절한 내용을 구성하는 데 큰 어려움이 있다.<br>• 구체적인 정보가 거의 없다.<br>• 제한된 어휘와 끊어진 짧은 어구에 의존한다.<br>• 심각한 어휘·문법 오류가 반복된다.<br>• 독자적인 표현이 드물고, 이해 가능한 부분도 대부분 문제에서 가져온 내용이다.</td><td>토론에 기여할 내용을 제시하지 못하고 자신의 생각도 제대로 표현하지 못한다.<br>• 생각이 일관되게 이어지지 않는다.<br>• 문장과 어휘의 사용 범위가 매우 좁다.<br>• 심각한 어휘·문법 오류가 자주 나타난다.</td></tr>
+<tr><td>0점</td><td>미작성, 주제에 반하는 답안, 영어가 아닌 답안, 문제를 그대로 옮긴 답안 또는 문제와 전혀 무관한 답안에 해당한다.</td><td>답안이 없거나, 주제에 반하거나, 영어로 작성되지 않았거나, 문제를 그대로 복사했거나, 내용이 문제와 전혀 관계없는 경우다.</td></tr>
+</table></div>
+</article>
+<article class="card">
+<h2>Writing 화면의 흐름과 조작 방법</h2>
+<h3 class="step"><i>1</i>영역 시작 안내</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>Writing Directions</span><span>12문항 · 3가지 TASK</span></div>
+<p>Writing의 전체 진행 방식을 소개한다. 총 12문항과 세 가지 과제로 구성된다는 점을 확인한 후 문제 풀이를 시작한다.</p>
+<h3 class="step"><i>2</i>문장 배열 문제</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>TASK 1</span><span>질문 · 빈칸 · 단어 보기</span><span>Next · Back</span></div>
+<p>화면의 질문, 빈칸이 있는 응답, 배열할 단어를 확인한다. 단어를 알맞은 위치로 끌어 놓아 문장을 완성한다. TASK 1 안에서는 Next와 Back을 이용해 문항을 오갈 수 있다.</p>
+<h3 class="step"><i>3</i>이메일 작성</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>TASK 2</span><span>상황 · 포함 항목</span><span>답안 입력 · 7분</span></div>
+<p>왼쪽에는 작성 상황과 포함해야 할 내용이, 오른쪽에는 답안 입력 공간이 나타난다. 7분 타이머를 보며 글을 작성하고, 일찍 마쳤다면 Next를 눌러 다음 과제로 진행할 수 있다.</p>
+<h3 class="step"><i>4</i>학술 토론 작성</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>TASK 3</span><span>교수 질문 · 학생 의견</span><span>답안 입력 · 10분</span></div>
+<p>교수의 질문과 두 학생의 의견을 읽고 입력란에 자신의 답을 작성한다. 타이머는 10분부터 줄어든다. 시간 전에 작성을 끝내면 Next로 다음 영역으로 이동할 수 있다.</p>
+<h3 class="step"><i>5</i>과제 마무리</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>Task Complete</span><span>Back · Next</span></div>
+<p>TASK가 끝나면 Back으로 해당 답안을 다시 살펴볼 수 있다. Next로 다음 과제나 영역으로 이동한 뒤에는 완료한 TASK로 돌아갈 수 없다.</p>
+</article>
+</section>
+<section class="pane" data-k="speaking" hidden>
+<article class="card">
+<h2>Speaking 평가 내용과 과제 구성</h2>
+<p class="lead">Speaking은 영어권의 학업과 일상에서 필요한 말하기 능력을 평가한다. 들은 내용을 재현하고 질문에 자신의 생각을 전달하는 연습은 시험 대비와 더불어 해외 대학 진학 이후의 학습 및 생활에도 활용할 수 있다.</p>
+<h3>두 과제의 문항 수와 응답 시간</h3>
+<p class="lead">Speaking은 두 TASK로 진행하며, 문항별로 별도의 준비 시간은 제공하지 않는다.</p>
+<div class="tw"><table>
+<tr><th>TASK</th><th>문항 수</th><th>응답 시간</th></tr>
+<tr><td>1 Listen and Repeat</td><td>7문항</td><td>문항당 8~12초</td></tr>
+<tr><td>2 Take an Interview</td><td>4문항</td><td>문항당 45초</td></tr>
+<tr><td>합계</td><td>11문항</td><td>전체 약 8분</td></tr>
+</table></div>
+<h3>과제별 응답 방법</h3>
+<h3>TASK 1 Listen and Repeat</h3>
+<p class="lead">교육 시설, 문화 시설, 관광 명소 등에서 들을 수 있는 안내 문장 7개를 순서대로 따라 말한다. 관련 그림이 흑백으로 제시되고, 현재 들려주는 내용과 연결된 부분에는 색과 강조 표시가 나타난다. 문장은 한 번만 재생되며, 재생이 끝난 후 약 2~3초가 지나면 녹음이 시작된다. 문장 길이에 따라 8~12초 동안 답변한다.</p>
+<h3>TASK 2 Take an Interview</h3>
+<p class="lead">인터뷰어가 질문하는 영상을 보고 자신의 생각을 45초 동안 말한다. 하나의 주제에 대해 네 개의 질문이 이어지며, 교육·진로·건강과 일상·환경과 기술·문화와 라이프스타일 등 다양한 내용을 다룬다. 질문은 화면에 글로 나오지 않고 영상으로 한 번만 제시된다. 질문이 끝나면 별도의 준비 시간 없이 즉시 답변이 시작된다.</p>
+</article>
+<article class="card">
+<h2>Speaking 채점 방식과 평가 기준</h2>
+<p class="note">각 문항을 아래의 기준으로 0~5점 평가한 뒤, 총 11문항의 원점수를 합쳐 Speaking 영역의 1~6점 밴드 점수로 바꾼다. ETS는 원점수의 세부 환산 기준을 공개하지 않는다.</p>
+<div class="tw"><table>
+<tr><th>점수</th><th>TASK 1 Listen and Repeat</th><th>TASK 2 Take an Interview</th></tr>
+<tr><td>5점</td><td>제시된 문장을 정확하게 재현한다.<br>• 원문 그대로 발화해 의미가 충분히 전달된다.</td><td>질문에 적절히 답하고 내용이 명료하다.<br>• 주제와 연결되는 타당한 이유와 근거를 포함한다.<br>• 말의 속도가 자연스럽고 발음·리듬·억양이 이해를 거의 방해하지 않는다.<br>• 정확한 문법과 폭넓은 어휘로 뜻을 분명히 표현한다.</td></tr>
+<tr><td>4점</td><td>원문의 의미를 정확히 전하지만 표현을 완전히 동일하게 재현하지는 못한다.<br>• 일부 표현이나 구문이 달라도 의미를 바꿀 정도는 아니다.</td><td>대체로 질문에 맞게 답하고 내용도 비교적 분명하다.<br>• 연결 표현이 충분히 효과적이지 않을 수 있다.<br>• 발음·리듬·억양은 대체로 자연스럽지만 속도가 끊기거나 일부 어구가 불명확하다.<br>• 문법과 어휘는 대체로 적절해 대부분의 뜻을 전달한다.</td></tr>
+<tr><td>3점</td><td>대체적인 뜻은 살리지만 중요한 부분을 빼거나 정확하지 않게 말한다.<br>• 원문의 표현을 대부분 사용해 완전한 문장으로 발화한다.<br>• 머뭇거림이나 발음 오류로 의미가 흐려지는 부분이 있다.</td><td>질문과 관련된 답을 하지만 전개가 미흡하거나 의미가 불명확한 부분이 있다.<br>• 근거와 세부 정보가 부족하고 내용 연결이 느슨하다.<br>• 속도·리듬이 부자연스럽게 끊기고 발음·강세가 의미 전달을 방해하기도 한다.<br>• 군더더기가 많고 제한된 문법·어휘로 뜻이 종종 모호하다.</td></tr>
+<tr><td>2점</td><td>주요 정보를 빠뜨리거나 잘못 전달한다.<br>• 핵심 표현이 누락돼 원래 뜻과 차이가 크다.<br>• 문장을 완성하지 못하고 짧은 어구를 늘어놓는다.<br>• 발음·강세·억양의 문제로 의미가 제대로 전달되지 않는다.</td><td>답변하려고 시도하지만 전개가 매우 부족해 뜻을 이해하기 어렵다.<br>• 주제와 약간 관련돼도 구체적인 내용이 없거나 같은 말을 되풀이한다.<br>• 발음·강세·리듬의 문제와 제한된 문법·어휘가 의미 전달을 막는다.</td></tr>
+<tr><td>1점</td><td>문장의 대부분을 재현하지 못해 의미가 거의 전달되지 않는다.<br>• 몇몇 단어만 말하고 나머지 내용을 빠뜨린다.<br>• 원문의 뜻을 파악하기 어렵다.</td><td>질문에 거의 답하지 못하며 언어 사용의 한계로 뜻을 전달하기 어렵다.<br>• 질문과의 연결이 모호하다.<br>• 대부분의 내용을 이해할 수 없다.<br>• 개별 단어나 짧은 구절에 의존한다.</td></tr>
+<tr><td>0점</td><td>응답이 없거나, 전혀 이해할 수 없거나, 영어로 말하지 않거나, 제시 문장과 아무 관계없는 내용을 말한 경우다.</td><td>발화가 없거나 뜻을 알아들을 수 없거나 영어가 아니거나 질문과 전혀 관련되지 않은 내용으로 답한 경우다.</td></tr>
+</table></div>
+</article>
+<article class="card">
+<h2>Speaking 화면의 흐름과 조작 방법</h2>
+<h3 class="step"><i>1</i>음량과 마이크 확인</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>Volume Check</span><span>Microphone Check</span></div>
+<p>헤드폰의 소리 크기를 확인한 뒤 마이크 입력 상태를 점검한다. Volume으로 음량을 조절하며 시험 중에도 변경할 수 있다. 마이크 점검에서는 제시된 글을 읽고 녹음된 목소리를 확인한다. 마이크 입력 음량은 시험 시작 전 이 단계에서만 조정할 수 있다.</p>
+<h3 class="step"><i>2</i>영역 시작 안내</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>Speaking Directions</span><span>11문항 · 2가지 TASK</span></div>
+<p>전체 문항 수와 과제 구성을 확인한다. Speaking은 총 11문항으로 이루어지며, 듣고 따라 말하기와 인터뷰 응답의 두 과제로 진행된다.</p>
+<h3 class="step"><i>3</i>따라 말하기 상황 안내</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>TASK 1</span><span>상황 · 대상 · 장소 그림</span></div>
+<p>누구에게 어떤 상황에서 안내하는지 설명하는 문장과 장소를 나타내는 흑백 그림이 제시된다. 이후 들을 문장을 이해하는 배경으로 활용한다.</p>
+<h3 class="step"><i>4</i>따라 말하기 음원 청취</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>TASK 1</span><span>안내 음원 · 그림 강조</span></div>
+<p>문장을 듣는 동안 그림에서 발화와 연결되는 부분에 색과 강조 표시가 나타난다. 표시된 장면과 음원의 의미를 연결하며 문장을 듣는다.</p>
+<h3 class="step"><i>5</i>따라 말하기 녹음</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>TASK 1</span><span>약 2~3초 간격 · Beep · 8~12초</span></div>
+<p>문장 재생 후 약 2~3초가 지나면 신호음과 함께 답변 시간이 시작된다. 문장 길이에 따라 8~12초의 녹음 시간이 주어지며, 시간이 끝나면 자동으로 다음 화면으로 진행된다.</p>
+<h3 class="step"><i>6</i>인터뷰 주제 확인</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>TASK 2</span><span>주제 안내 · 인터뷰어 사진</span></div>
+<p>인터뷰의 주제를 소개하는 설명과 인터뷰어 사진이 나타난다. 어떤 내용에 관한 질문이 이어질지 확인하는 단계다.</p>
+<h3 class="step"><i>7</i>인터뷰 질문 청취</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>TASK 2</span><span>인터뷰어 영상 · 질문 1회</span></div>
+<p>인터뷰어가 질문하는 영상을 시청한다. 질문 문장은 화면에 표시되지 않으며, 음성은 영상을 통해 한 번만 들을 수 있다.</p>
+<h3 class="step"><i>8</i>인터뷰 답변 녹음</h3>
+<div class="screen"><b>화면에서 확인할 요소</b><span>TASK 2</span><span>준비 시간 없음 · 45초</span></div>
+<p>질문 영상이 끝나면 신호음 없이 45초 답변 타이머가 바로 작동한다. 별도의 준비 시간은 없다. 응답 시간이 종료되면 다음 화면으로 자동 이동한다.</p>
+</article>
+</section>
+<p class="foot">노베토플 4.5+ · Updated TOEFL 안내</p>
+</main>
+<script>
+(function(){
+  "use strict";
+  var TONE = {"about": ["#003A5D", "#2E6C93", "#E9F1F6", "#0E2C3F"], "reading": ["#5F7D14", "#C8DD6B", "#F3F8E4", "#2B3A08"], "listening": ["#A4538F", "#C77DB5", "#F7EDF4", "#3E1C34"], "writing": ["#137F76", "#22BCAD", "#E4F6F4", "#07332F"], "speaking": ["#C4482C", "#F36F52", "#FDEDE8", "#4A1A0E"]};
+  var tabs = [].slice.call(document.querySelectorAll('.tabs button'));
+  var panes = [].slice.call(document.querySelectorAll('.pane'));
+  // 폭이 모자라 가로로 밀어야 하는 표에만 안내를 단다. 숨은 탭은 폭이
+  // 0 이라 재어지지 않으므로 탭을 켤 때마다 다시 잰다.
+  function hint(){
+    [].forEach.call(document.querySelectorAll('.pane:not([hidden]) .tw'),
+      function(w){
+        w.classList.toggle('scrolls', w.scrollWidth > w.clientWidth + 2);
+      });
+  }
+  function show(key, push){
+    if(!TONE[key]) key = 'about';
+    tabs.forEach(function(b){
+      b.setAttribute('aria-selected', b.dataset.k === key ? 'true' : 'false');
+    });
+    panes.forEach(function(p){ p.hidden = (p.dataset.k !== key) });
+    var t = TONE[key], r = document.documentElement.style;
+    r.setProperty('--spot', t[0]); r.setProperty('--fill', t[1]);
+    r.setProperty('--tint', t[2]); r.setProperty('--deep', t[3]);
+    var m = document.querySelector('meta[name="theme-color"]');
+    if(m) m.setAttribute('content', t[0]);
+    if(push && location.hash.slice(1) !== key){
+      history.replaceState(null, '', '#' + key);
+    }
+    hint();
+    window.scrollTo(0, 0);
+  }
+  tabs.forEach(function(b){
+    b.onclick = function(){ show(b.dataset.k, true) };
+  });
+  window.addEventListener('hashchange', function(){
+    show(location.hash.slice(1), false);
+  });
+  show(location.hash.slice(1) || 'about', false);
+  window.addEventListener('resize', hint);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(hint);
+})();
+</script>
+</body>
+</html>
